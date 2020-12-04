@@ -14,9 +14,9 @@ simulate/animate simple quarcks exchange between quacks
  ##### strong 
  ##### EMG 
 
-## fixed animations
+ ## fixed animations
  ### betha - zerfall
-###betha + zerfall
+ ### betha + zerfall
  ## playground
  ### create quacks with mouse
  ### selector of quarcks
