@@ -1,10 +1,12 @@
 from graphics import *
-class Quarck(object):
+class Quarck(Circle):
 
     radius = 50 # not physical radius
 
     def __init__(self, centerPoint, name, sign, mass, eCharge, wCharge, sCharge):
-        self.center = centerPoint
+
+        super().__init__(centerPoint, self.radius)
+
         self.name = name
         self.sign = sign
         self.mass = mass
@@ -12,19 +14,35 @@ class Quarck(object):
         self.weakCharge = wCharge
         self.strongCharge = sCharge
 
+######### Getters ####################
+    def get_name(self):
+        return self.name
+
+    def get_sign(self):
+        return self.sign
+
+    def get_mass(self):
+        return self.mass
+
+    def get_electricCharge(self):
+        return self.electricCharge
+
+    def get_weakCharge(self):
+        return self.weakCharge
+
+    def get_strongCharge(self):
+        return self.strongCharge
+########################################
+
     def draw(self, win):
-        c = Circle(self.center, self.radius)
+        c = super().draw(win)
         c.setFill("grey")
 
-        t = Text(self.center, self.sign)
+        t = Text(self.getCenter(), self.sign)
         t.setSize(20)
         t.setTextColor("white")
 
-        c.draw(win)
         t.draw(win)
-
-    
-
 
 class Positron(Quarck):
     name = "Positron"
