@@ -129,6 +129,18 @@ class DownQuarck(elementaryParticle):
     def __init__(self, centerPoint, strongCharge):
         super().__init__(self.name, self.sign, centerPoint, self.mass, strongCharge, self.weakCharge, self.electricCharge, self.spin)
 
+class Photon(elementaryParticle):
+    name = "Photon"
+    sign = '\u03B3'
+    mass = 0
+    strongCharge = "white"
+    weakCharge = 0
+    electricCharge = 0
+    spin = 1
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.mass, self.strongCharge, self.weakCharge, self.electricCharge, self.spin)
+
 class WBoson(elementaryParticle):
     mass = 80400
     strongCharge = "white"
