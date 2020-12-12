@@ -52,8 +52,12 @@ class elementaryParticle():
         self.window = wind
         self.C = Circle(self.center, self.radius)
         self.C.setFill(self.strongCharge)
+        
         self.T = Text(self.center, self.sign)
-        self.T.setFill("white")
+        if self.strongCharge == "white":
+            self.T.setFill("black")
+        else:
+            self.T.setFill("white")
         self.T.setSize(20)
 
         self.C.draw(self.window)
@@ -124,6 +128,35 @@ class DownQuarck(elementaryParticle):
 
     def __init__(self, centerPoint, strongCharge):
         super().__init__(self.name, self.sign, centerPoint, self.mass, strongCharge, self.weakCharge, self.electricCharge, self.spin)
+
+class WBoson(elementaryParticle):
+    mass = 80400
+    strongCharge = "white"
+    spin = 1
+
+    def __init__(self, name, sign, centerPoint, weakCharge, electricCharge):
+        super().__init__(name, sign, centerPoint, self.mass, self.strongCharge, weakCharge, electricCharge, self.spin)
+
+
+class WplusBoson(WBoson):
+    name = "W+ - Boson"
+    sign = "W+"
+
+    electricCharge = 0.5
+    weakCharge = 0.5
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.weakCharge, self.electricCharge)
+
+class WminusBoson(WBoson):
+    name = "W- - Boson"
+    sign = "W-"
+
+    electricCharge = -0.5
+    weakCharge = -0.5
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.weakCharge, self.electricCharge)
 
 
 class Gluon(elementaryParticle):
