@@ -48,24 +48,37 @@ class elementaryParticle():
 ########################################
 
     def draw(self, wind):
-        self.C = Circle(self.center, self.radius)
-        self.T = Text(self.center, self.sign)
-        self.T.setFill("red")
-        self.T.setSize(30)
 
-        self.C.draw(wind)
-        self.T.draw(wind)
+        self.window = wind
+        self.C = Circle(self.center, self.radius)
+        self.C.setFill(self.strongCharge)
+        self.T = Text(self.center, self.sign)
+        self.T.setFill("white")
+        self.T.setSize(20)
+
+        self.C.draw(self.window)
+        self.T.draw(self.window)
 
     def unDraw(self):
         self.C.undraw()
         self.T.undraw()
     
     def toAnti(self):
+
+        oldSign = self.sign
+        self.sign = "Anti- " + oldSign
+
         weak = self.weakCharge
         self.weakCharge = -1 * weak
 
         electric = self.electricCharge
         self.electricCharge = -1 * electric
+
+        if self.window  == None:
+            print("self.window was undefined!!")
+        
+        self.unDraw()
+        self.draw(self.window)
 
     def move(self, dx, dy):
         c = math.sqrt( dx**2 + dy**2)
@@ -90,10 +103,6 @@ class elementaryParticle():
             self.T.move(x, y)
             s = s + 1
         
-
-    
-
-
 class UpQuarck(elementaryParticle):
     name = "Up - Quarck"
     sign = "u"
@@ -104,6 +113,5 @@ class UpQuarck(elementaryParticle):
 
     def __init__(self, centerPoint, strongCharge):
         super().__init__(self.name, self.sign, centerPoint, self.mass, strongCharge, self.weakCharge, self.electricCharge, self.spin)
-
 
 
