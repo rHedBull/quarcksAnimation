@@ -114,6 +114,18 @@ class UpQuarck(elementaryParticle):
     def __init__(self, centerPoint, strongCharge):
         super().__init__(self.name, self.sign, centerPoint, self.mass, strongCharge, self.weakCharge, self.electricCharge, self.spin)
 
+class DownQuarck(elementaryParticle):
+    name = "Down - Quarck"
+    sign = "d"
+    mass = 5
+    weakCharge = -0.5
+    electricCharge = -0.33
+    spin = 0.5
+
+    def __init__(self, centerPoint, strongCharge):
+        super().__init__(self.name, self.sign, centerPoint, self.mass, strongCharge, self.weakCharge, self.electricCharge, self.spin)
+
+
 class Gluon(elementaryParticle):
     name = "Gluon"
     sign = "g"
