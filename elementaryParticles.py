@@ -3,6 +3,9 @@ from graphics import *
 class elementaryParticle():
 
     radius = 50
+    offsetPoint = Point(-1,-1)
+    C = Circle(offsetPoint,0)
+    T = Text(offsetPoint, "")
 
     def __init__(self, name, sign, centerPoint, mass, strongCharge, weakCharge, electricCharge, spin):
         self.name = name
@@ -43,13 +46,17 @@ class elementaryParticle():
 ########################################
 
     def draw(self, wind):
-        c = Circle(self.center, self.radius)
-        t = Text(self.center, self.sign)
-        t.setFill("red")
-        t.setSize(30)
+        self.C = Circle(self.center, self.radius)
+        self.T = Text(self.center, self.sign)
+        self.T.setFill("red")
+        self.T.setSize(30)
 
-        c.draw(wind)
-        t.draw(wind)
+        self.C.draw(wind)
+        self.T.draw(wind)
+
+    def unDraw(self):
+        self.C.undraw()
+        self.T.undraw()
     
     def toAnti(self):
         weak = self.weakCharge
@@ -57,6 +64,12 @@ class elementaryParticle():
 
         electric = self.electricCharge
         self.electricCharge = -1 * electric
+
+    def move(self, dx, dy):
+        
+        self.C.move(dx, dy)
+        self.T.move(dx, dy)
+        
 
     
 
