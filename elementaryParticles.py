@@ -158,6 +158,17 @@ class WminusBoson(WBoson):
     def __init__(self, centerPoint):
         super().__init__(self.name, self.sign, centerPoint, self.weakCharge, self.electricCharge)
 
+class ZBoson(elementaryParticle):
+    name = "Z - Boson"
+    sign = "Z"
+    mass = 91200
+    strongCharge = "white"
+    spin = 1
+    weakCharge = 0
+    electricCharge = 0
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.mass, self.strongCharge, self.weakCharge, self.electricCharge, self.spin)
 
 class Gluon(elementaryParticle):
     name = "Gluon"
