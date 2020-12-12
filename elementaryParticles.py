@@ -19,7 +19,7 @@ class elementaryParticle():
         self.electricCharge = electricCharge
         self.spin = spin
 
-#### getters #########################
+    #### getters #########################
 
     def get_name(self):
         return self.name
@@ -45,7 +45,7 @@ class elementaryParticle():
     def get_spin(self):
         return self.spin
 
-########################################
+    ########################################
 
     def draw(self, wind):
 
@@ -106,7 +106,8 @@ class elementaryParticle():
             self.C.move(x,y)
             self.T.move(x, y)
             s = s + 1
-        
+
+############# Quarcks ###########################################################     
 class UpQuarck(elementaryParticle):
     name = "Up - Quarck"
     sign = "u"
@@ -129,6 +130,7 @@ class DownQuarck(elementaryParticle):
     def __init__(self, centerPoint, strongCharge):
         super().__init__(self.name, self.sign, centerPoint, self.mass, strongCharge, self.weakCharge, self.electricCharge, self.spin)
 
+############## Bosons ############################################################
 class Photon(elementaryParticle):
     name = "Photon"
     sign = '\u03B3'
@@ -148,7 +150,6 @@ class WBoson(elementaryParticle):
 
     def __init__(self, name, sign, centerPoint, weakCharge, electricCharge):
         super().__init__(name, sign, centerPoint, self.mass, self.strongCharge, weakCharge, electricCharge, self.spin)
-
 
 class WplusBoson(WBoson):
     name = "W+ - Boson"
@@ -192,4 +193,54 @@ class Gluon(elementaryParticle):
 
     def __init__(self, centerPoint, strongCharge):
         super().__init__(self.name, self.sign, centerPoint, self.mass, strongCharge, self.weakCharge, self.electricCharge, self.spin)
+
+############## Leptons ##########################################################
+
+class Lepton(elementaryParticle):
+    strongCharge = "white"
+    spin = 0.5
+
+    def __init__(self, name, sign, centerPoint, mass, weakCharge, electricCharge):
+        super().__init__(name, sign, centerPoint, mass, self.strongCharge, weakCharge, electricCharge, self.spin)
+
+class ElektronNeutrino(Lepton):
+    name = "Elektron - Neutrino"
+    sign = "Ve"
+    mass = 0.0000001
+    weakCharge = 0.5
+    electricCharge = 0
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.mass, self.weakCharge, self.electricCharge)
+
+class ElektronAntiNeutrino(Lepton):
+    name = "Elektron Anti- Neutrino"
+    sign = "Ve_"
+    mass = 0.0000001
+    weakCharge = -0.5
+    electricCharge = 0
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.mass, self.weakCharge, self.electricCharge)
+
+class Elektron(Lepton):
+    name = "Elektron"
+    sign = "e-"
+    mass = 0.511
+    weakCharge = -0.5
+    electricCharge = -1
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.mass, self.weakCharge, self.electricCharge)
+
+class Positron(Lepton):
+    name = "Positron"
+    sign = "e+"
+    mass = 0.511
+    weakCharge = 0.5
+    electricCharge = 1
+
+    def __init__(self, centerPoint):
+        super().__init__(self.name, self.sign, centerPoint, self.mass, self.weakCharge, self.electricCharge)
+
 

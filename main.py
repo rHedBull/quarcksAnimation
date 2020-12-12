@@ -1,48 +1,44 @@
 from graphics import *
-from quarcks import *
+from elementaryParticles import *
 
 
+window = GraphWin("text",1500, 700)
+window.setBackground("blue")
 
 def main():
+    weakInteraction(window)
+    window.getMouse()
+    window.close()
 
-    win.setBackground("blue")
+def weakInteraction(wind):
+    initialX = 0.1 * wind.getWidth() ## start point UpQuarck
+    initialY = 0.9 * wind.getHeight()
+
+    moveUpQX = 100
+    moveUpQY = -100
+
+    p = Point(initialX,initialY) 
+    u = UpQuarck(p,"green")
+    u.draw(wind)
+
+    u.move(moveUpQX, moveUpQY)
+
+    initialWX = initialX + moveUpQX
+    initialWY = initialY + moveUpQY
+    p2 = Point(initialWX, initialWY)
+    w = WplusBoson(p2)
+    w.draw(wind)
+
+    moveWX = 100
+    moveWY = -100  
+    w.move(moveWX, moveWY)
+
+    u.move(-moveUpQX, moveUpQY)
+
     
-    p1 = Point(100,300)
-    p2 = Point( 200, 300)
-    w = 10
-
-    l = Line(p1,p2)
-    l.setWidth(w)
-    l.setFill("red")
-    l.setArrow("last")
-
-    l.draw(win)
-
-    # test for looping
-    i = w
-    while i < 200:
-        i = i * 1.001
-        l.setWidth(i)
-        win.redraw()
-
-    print("this works")
-    
-    win.getMouse()
-    win.close()
 
 
-    
-win = GraphWin("window",500,500)
-#main()
-
-# q = Quarck(1)
-
-# print(q.get_weakCharge())
-
-p1 = Point(300,300)
-p = Positron(p1)
-p.draw(win)
-p.move(-200,0)
 
 
-win.getMouse()
+main()
+window.getMouse()
