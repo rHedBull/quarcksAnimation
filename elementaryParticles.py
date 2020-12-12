@@ -1,4 +1,6 @@
 from graphics import *
+from time import sleep
+import math
 
 class elementaryParticle():
 
@@ -66,9 +68,27 @@ class elementaryParticle():
         self.electricCharge = -1 * electric
 
     def move(self, dx, dy):
+        c = math.sqrt( dx**2 + dy**2)
+
+        ## calculating animation length##
+        k = c/100               ## factor k, if c < or > than 100 pixel
+        standardTime = 1.25      ## seconds
+        time = k * standardTime ## c = 100 pixel should take 1.25 seconds
+
+        ## calculating steps parameter ##
+        timePerStep = 0.01          ## seconds
+        steps = time / timePerStep ## amount of steps
+
+        x = dx/steps
+        y = dy/steps
+
+        s = 0
+        while s < steps:
+            sleep(timePerStep)
         
-        self.C.move(dx, dy)
-        self.T.move(dx, dy)
+            self.C.move(x,y)
+            self.T.move(x, y)
+            s = s + 1
         
 
     
