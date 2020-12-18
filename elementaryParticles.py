@@ -8,16 +8,18 @@ class elementaryParticle():
     offsetPoint = Point(-1,-1)
     C = Circle(offsetPoint,0)
     T = Text(offsetPoint, "")
+    
 
     def __init__(self, name, sign, centerPoint, mass, strongCharge, weakCharge, electricCharge, spin):
         self.name = name
         self.sign = sign
-        self.center = centerPoint
         self.mass = mass
         self.strongCharge = strongCharge
         self.weakCharge = weakCharge
         self.electricCharge = electricCharge
         self.spin = spin
+        self.x = centerPoint.getX()
+        self.y = centerPoint.getY()
 
     #### getters #########################
 
@@ -44,16 +46,23 @@ class elementaryParticle():
     
     def get_spin(self):
         return self.spin
+    
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
 
     ########################################
 
     def draw(self, wind):
 
         self.window = wind
-        self.C = Circle(self.center, self.radius)
+        c = Point(self.x, self.y)
+        self.C = Circle(c , self.radius)
         self.C.setFill(self.strongCharge)
         
-        self.T = Text(self.center, self.sign)
+        self.T = Text(c, self.sign)
         if self.strongCharge == "white":
             self.T.setFill("black")
         else:
@@ -104,7 +113,11 @@ class elementaryParticle():
             sleep(timePerStep)
         
             self.C.move(x,y)
+            oldx = self.x
+            self.x = oldx + x
             self.T.move(x, y)
+            oldy = self.y
+            self.y = oldy + y
             s = s + 1
 
 ############# Quarcks ###########################################################     

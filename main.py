@@ -12,7 +12,7 @@ def main():
 
 def weakInteraction(wind):
     initialX = 0.1 * wind.getWidth() ## start point UpQuarck
-    initialY = 0.8 * wind.getHeight()
+    initialY = 0.9 * wind.getHeight()
 
     ## time arrow ##
     pointUpArrow = Point(40, (wind.getHeight()*0.9))
@@ -30,11 +30,16 @@ def weakInteraction(wind):
     timeText.draw(wind)
 
     ## überschrift
+    headPoint= Point(0.5 * wind.getWidth(), 0.1 * wind.getHeight())
+    heading = Text(headPoint, "Schwachewechselwirkung ( Weak Interaction)")
+    heading.setSize(30)
+    heading.setFill("white")
+    heading.draw(wind)
+
     ## relative to window size !! 
 
-
-    moveUpQX = 100
-    moveUpQY = -100
+    moveUpQX = wind.getWidth() * 0.3
+    moveUpQY = wind.getHeight() *  -0.3
 
     p = Point(initialX,initialY) 
     u = UpQuarck(p,"green")
@@ -47,7 +52,7 @@ def weakInteraction(wind):
     p2 = Point(initialWX, initialWY)
     w = WplusBoson(p2)
     w.draw(wind)
-    ## u.toAnti() create current x and y position attributes for all classes, change draw, undraw, to Anti methods !!!!!!
+    u.toAnti() 
 
     moveWX = 100
     moveWY = -100  
@@ -65,15 +70,12 @@ def weakInteraction(wind):
     w.unDraw()
 
     moveNX = 100
-    moveNY = -100  
+    moveNY = -100
     n.move(moveNX, moveNY)
     positron.move(-moveNX, moveNY)
 
 
     u.move(-moveUpQX, moveUpQY)
-
-
-
 
 
 
