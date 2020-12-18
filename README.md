@@ -1,4 +1,4 @@
-# quantumSim
+# quarcksAnimation
 animate simple elementary particle interactions in Feynman diagram. Please notice that many things are oversimplified represented.
 
 ## Try it
