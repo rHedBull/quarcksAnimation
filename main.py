@@ -2,11 +2,21 @@ from graphics import *
 from elementaryParticles import *
 
 
-window = GraphWin("text",1500, 700)
+window = GraphWin("text",1000, 700)
 window.setBackground("blue")
 
 def main():
+    ## start button
+    headPoint= Point(0.5 * window.getWidth(), 0.1 * window.getHeight())
+    heading = Text(headPoint, "Click anywhere to start animation")
+    heading.setSize(30)
+    heading.setFill("white")
+    heading.draw(window)
+
+    window.getMouse()
+    heading.undraw()
     weakInteraction(window)
+
     window.getMouse()
     window.close()
 
@@ -47,6 +57,7 @@ def weakInteraction(wind):
 
     u.move(moveUpQX, moveUpQY)
 
+    ## W boson ######
     initialWX = initialX + moveUpQX
     initialWY = initialY + moveUpQY
     p2 = Point(initialWX, initialWY)
@@ -54,23 +65,24 @@ def weakInteraction(wind):
     w.draw(wind)
     u.toAnti() 
 
-    moveWX = 100
-    moveWY = -100  
+    moveWX = wind.getWidth() * 0.1
+    moveWY = wind.getHeight() *  -0.1 
     w.move(moveWX, moveWY)
     
-
+    ## neutrino ###########
     initialNX = initialWX + moveWX
     initialNY = initialWY + moveWY
     p3 = Point(initialNX, initialNY)
     n = ElektronNeutrino(p3)
     n.draw(wind)
 
+    ## Positron #################
     positron = Positron(p3)
     positron.draw(wind)
     w.unDraw()
 
-    moveNX = 100
-    moveNY = -100
+    moveNX = wind.getWidth() * 0.2 - moveWX
+    moveNY = wind.getHeight() *  -0.2 - moveWY
     n.move(moveNX, moveNY)
     positron.move(-moveNX, moveNY)
 
