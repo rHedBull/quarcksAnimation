@@ -1,26 +1,13 @@
 # quantumSim
-simulate/animate simple quarcks exchange between quacks 
- ## represent quarck as circles
- ### .quarck(type)
- ### moving
- ### color
+animate simple elementary particle interactions in Feynman diagram. Please notice that many things are oversimplified represented.
 
- ## make arrow
- ### .arrow(x,y, length, width)
- ## backend
- ### different types of quarcks
- #### charges
- ##### weak (color)
- ##### strong 
- ##### EMG 
+## Try it
+### Download:
+#### main.py
+#### elementaryParticles.py
+#### graphics.py
 
- ## fixed animations
- ### betha - zerfall
- ### betha + zerfall
- ## playground
- ### create quacks with mouse
- ### selector of quarcks
- ### positioning with mouse
- ## interactions between quarcks
- ### exchange of messenger quarcks
- ### create exchange
+#### coded for Python 3.8.5
+
+## Weakinteraction
+### The exchange of the messenger bosons W+, W- and Z are responsible for the transition of elementary particles like Up-, Down-, Charm-, Strange-, Top- and Bottom- Quarcks into each other or their Antiquarcks. Therefore they are very important for betha+  decay where an proton (Up, Down, Up) becomes an neutron (Up, Down, Down) or for betha- the other way around. 

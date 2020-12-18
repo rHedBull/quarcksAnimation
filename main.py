@@ -41,7 +41,7 @@ def weakInteraction(wind):
 
     ## überschrift
     headPoint= Point(0.5 * wind.getWidth(), 0.1 * wind.getHeight())
-    heading = Text(headPoint, "Schwachewechselwirkung ( Weak Interaction)")
+    heading = Text(headPoint, "Schwache Wechselwirkung ( Weak Interaction)")
     heading.setSize(30)
     heading.setFill("white")
     heading.draw(wind)
@@ -63,7 +63,12 @@ def weakInteraction(wind):
     p2 = Point(initialWX, initialWY)
     w = WplusBoson(p2)
     w.draw(wind)
-    u.toAnti() 
+    u.unDraw()
+
+    ## new Down quarck ##
+
+    d = DownQuarck(p2, u.get_strongCharge())
+    d.draw(wind)
 
     moveWX = wind.getWidth() * 0.1
     moveWY = wind.getHeight() *  -0.1 
@@ -87,7 +92,7 @@ def weakInteraction(wind):
     positron.move(-moveNX, moveNY)
 
 
-    u.move(-moveUpQX, moveUpQY)
+    d.move(-moveUpQX, moveUpQY)
 
 
 
